@@ -7,7 +7,7 @@
   min-height: 100vh;
   width: 100vw;
   padding: 0;
-  margin: 0;
+  margin: 0 !important;
   background: linear-gradient(-45deg, rgba(238, 119, 8, 0.652), rgba(236, 78, 92, 0.65), rgba(200, 125, 223, 0.65), rgba(108, 95, 22, 0.658));
   background-size: 1000% 1000%;
   animation: gradient 15s ease infinite;
@@ -34,6 +34,7 @@
   width: 100vw;
   height: 10vh;
   margin: 0;
+  padding: 25px 0 15px;
 
   transition: all 0.5s ease-in-out;
 
@@ -46,6 +47,15 @@
 
 .AppTitle:hover {
   letter-spacing: 5px;
+}
+
+.alert {
+  padding: 5px 10px;
+  background: #229e15bf;
+  color: white;
+  z-index: 5;
+  position: absolute;
+  width: calc(100vw - 20px);
 }
 
 .form-control {
@@ -64,10 +74,16 @@
 .searchbar-control {
   display: block;
   width: 50vw;
-  height: 3.5vh;
-  padding: 2.5px 5px 2.5px 10px;
+  height: 30px;
+  padding: 2.5px;
+  margin: 0;
   border: none;
   outline: none;
+  background-color: rgba(0,0,0,0);
+  border-bottom: 2.5px solid white;
+  color: white;
+  
+  font-size: 1.25em;
 }
 .searchbar-control::first-letter {
   text-transform: uppercase;
@@ -81,7 +97,7 @@
 
   width: 9vw;
   max-width: 85px;
-  height: 4vh;
+  height: 35px; 
   padding: 10px 15px;
   border: none;
   border-radius: 5px;
@@ -103,12 +119,21 @@
 
 .todo-filter {
   border: none;
-  height: 4vh;
+  height: 35px;
   width: 20vw;
   outline: none;
-  background-color: rgb(255, 255, 255);
-  padding: 5px 5px 5px 10px;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  font-size: 1em;
+  border-bottom: 2.5px solid white;
 
+}
+
+.option {
+  background-color: rgba(0,0,0,0.75);
+  border: none;
+  outline: none;
+  color: white;
 }
 
 .todo-container {
@@ -217,4 +242,15 @@
 
 .copy {
   background: no-repeat center url(../resources/copy.svg);
+}
+
+.scroller {
+  background: no-repeat center url(../resources/arrow-up-circle.svg);
+  margin: 15px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  height: 35px;
+  width: 35px;
+  background-size: 35px;
 }

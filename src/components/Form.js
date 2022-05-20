@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form  = ( {setInputText, inputText, todos, setTodos, setStatus, setArchived} ) => {
+const Form  = ( {setInputText, inputText, todos, setTodos, setStatus} ) => {
     const inputTextHandler = (e) => {
         console.log(e.target.value);
         setInputText(e.target.value)
@@ -21,17 +21,17 @@ const Form  = ( {setInputText, inputText, todos, setTodos, setStatus, setArchive
 
     return (
     <form className="form-control">
-        <input value={inputText} onChange={inputTextHandler} type="text" className="searchbar-control" placeholder="Add your note..." />
+        <input value={inputText} onChange={inputTextHandler} minLength={"1"} type="text" className="searchbar-control" placeholder="Add your note..." />
         <button onClick={submitTodoHandler} className="todo-btn" type="submit">
             &#43;
         </button>
 
         <div className="select">
             <select onChange={statusHandler} name="todos" className="todo-filter">
-                <option value="all">All</option>
-                <option value="done">Done</option>
-                <option value="pending">Pending</option>
-                <option value="isArchived"> Archived </option>
+                <option className="option" value="all">All</option>
+                <option className="option" value="done">Done</option>
+                <option className="option" value="pending">Pending</option>
+                <option className="option" value="isArchived"> Archived </option>
             </select>
         </div>
     </form>

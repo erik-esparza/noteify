@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Form from "./components/Form"
 import TodoList from "./components/TodoList"
+import Alert from "./components/Alert"
+import Scroll from "./components/Scroll"
+
 
 function App() {
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filterTodos, setFilterTodos] = useState([]);
+  const [show, setShow] = useState(false);
 
-
+  console.log(show)
 
   const filterHandler = () => {
     switch(status) {
@@ -50,10 +54,11 @@ function App() {
     filterHandler();
     saveLocalTodos();
     console.log('effect filter save was triggered')
-    }, [todos, status])
+    }, [todos, status, inputText])
 
   return (
     <div className="App">
+      <Alert show={show} setShow={setShow}/>
       <header>
         <h1 className="AppTitle">
           Noteify
@@ -61,7 +66,8 @@ function App() {
       </header>
 
       <Form setInputText={setInputText} inputText={inputText} todos={todos} setTodos={setTodos} setStatus={setStatus}/>
-      <TodoList filterTodos={filterTodos} todos={todos} setTodos={setTodos} setInputText={setInputText} inputText={inputText}/>
+      <TodoList filterTodos={filterTodos} todos={todos} setTodos={setTodos} setInputText={setInputText} inputText={inputText} show={show} setShow={setShow}/>
+      <Scroll />
     </div>
   );
 }

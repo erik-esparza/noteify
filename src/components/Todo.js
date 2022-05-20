@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from "framer-motion";
 
-const Todo = ({text, todo, todos, setTodos, setInputText, inputText}) => {
+const Todo = ({text, todo, todos, setTodos, setShow}) => {
     //Events
     const deleteHandler = () => {
         setTimeout(() => {
@@ -86,16 +86,28 @@ const [isBlack, setIsBlack] = useState(true);
 
     const copyHandler = () => {
         navigator.clipboard.writeText(Object.values({text}));
-        alert("copied!")
+        setShow(true);
+        const timer = () => {
+            const timeId = setTimeout(() => {
+            // After 3 seconds set the show value to false
+                setShow(false)
+            }, 3000)
+            return () => {
+                clearTimeout(timeId)
+            }
+        }
+        timer()
     }
 
+    
 
     return (
     <motion.div
         className="todo"
         variants={variants}
         style={{backgroundColor: isBlack ? "rgba(0, 0, 0, 0.5)" : "rgba(72, 133, 237, 0.75)"}}
-        animate={animOptionsHandler(checkComplete, checkTrashed)}>
+        animate={animOptionsHandler(checkComplete, checkTrashed)}
+        drag="x, y">
         <div className="holder-top">
             {/* The text of the Todo. This comes from the form ---> Todolist maps it ----> the component gets added with the variable of text changed, an ID, trash check*/}
             <li
