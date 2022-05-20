@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/noteify/static/css/main.22f00018.css",
-    "main.js": "/noteify/static/js/main.a15d2398.js",
+    "main.css": "/noteify/static/css/main.df9fc90d.css",
+    "main.js": "/noteify/static/js/main.44210aa7.js",
     "static/js/787.74861886.chunk.js": "/noteify/static/js/787.74861886.chunk.js",
     "index.html": "/noteify/index.html",
     "static/media/brush-outline.svg": "/noteify/static/media/brush-outline.8c4c4c72bf450d8c433e.svg",
     "static/media/trash-2.svg": "/noteify/static/media/trash-2.b14f820499e2777e8f74.svg",
     "static/media/archive.svg": "/noteify/static/media/archive.90db50f3e5e4cc00bc77.svg",
+    "static/media/arrow-up-circle.svg": "/noteify/static/media/arrow-up-circle.608935a580be22978f82.svg",
     "static/media/copy.svg": "/noteify/static/media/copy.0401cc6419197629caab.svg",
     "static/media/check-square-done.svg": "/noteify/static/media/check-square-done.4adc63827b194885122f.svg",
     "static/media/check-square.svg": "/noteify/static/media/check-square.85e5212ee67926f2bf89.svg",
     "static/media/more-horizontal.svg": "/noteify/static/media/more-horizontal.24b5b530549222ca9b82.svg",
-    "main.22f00018.css.map": "/noteify/static/css/main.22f00018.css.map",
-    "main.a15d2398.js.map": "/noteify/static/js/main.a15d2398.js.map",
+    "main.df9fc90d.css.map": "/noteify/static/css/main.df9fc90d.css.map",
+    "main.44210aa7.js.map": "/noteify/static/js/main.44210aa7.js.map",
     "787.74861886.chunk.js.map": "/noteify/static/js/787.74861886.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.22f00018.css",
-    "static/js/main.a15d2398.js"
+    "static/css/main.df9fc90d.css",
+    "static/js/main.44210aa7.js"
   ]
 }
