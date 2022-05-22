@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion } from "framer-motion";
 
-const Todo = ({text, todo, todos, setTodos, setShow}) => {
+const Todo = ({text, todo, todos, setTodos, setShow, star, setStar}) => {
     //Events
     const deleteHandler = () => {
         setTimeout(() => {
@@ -100,6 +100,18 @@ const [isBlack, setIsBlack] = useState(true);
     }
 
     
+    const starHandler = () => {
+        setStar(!star);
+        setTodos(todos.map(item => {
+            if(item.id === todo.id) {
+                return {
+                    ...item, isStarred: !item.isStarred,
+                }
+            } else {
+                return item
+            }
+        }))
+        }
 
     return (
     <motion.div
@@ -109,6 +121,11 @@ const [isBlack, setIsBlack] = useState(true);
         animate={animOptionsHandler(checkComplete, checkTrashed)}
         drag="x, y">
         <div className="holder-top">
+            <motion.button
+                className={todo.isStarred === true ? "btn sDone" : "btn star"}
+                onClick={starHandler}
+            >
+            </motion.button>
             {/* The text of the Todo. This comes from the form ---> Todolist maps it ----> the component gets added with the variable of text changed, an ID, trash check*/}
             <li
             className="todo-item">
@@ -126,18 +143,6 @@ const [isBlack, setIsBlack] = useState(true);
         </div>
         
         <div className="holder-btm" style={{opacity: isOpen ? 0.75 : 1, justifyContent: isOpen ? "space-between" : "flex-end" }}>
-
-            <motion.button
-                className="btn more"
-                onClick={() => setIsOpen(!isOpen)}
-                animate={{ 
-                    rotate: isOpen ? 90 : 0,
-                    x: isOpen ? "-5px" : 0
-                }}
-                variants={variants}
-                whileHover={{scale: 1.25}}
-                whileTap={{scale: 0.80}}>
-            </motion.button>
 
                 {(isOpen === true) ? (
                     <>
@@ -179,6 +184,17 @@ const [isBlack, setIsBlack] = useState(true);
                     
                     </>
             ) : ("")}
+            <motion.button
+                className="btn more"
+                onClick={() => setIsOpen(!isOpen)}
+                animate={{ 
+                    rotate: isOpen ? 90 : 0,
+                    x: isOpen ? "-5px" : 0
+                }}
+                variants={variants}
+                whileHover={{scale: 1.25}}
+                whileTap={{scale: 0.80}}>
+            </motion.button>
             </div>
         </motion.div>
     );

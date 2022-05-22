@@ -5,7 +5,6 @@
 .App {
   box-sizing: border-box;
   min-height: 100vh;
-  width: 100vw;
   padding: 0;
   margin: 0 !important;
   background: linear-gradient(-45deg, rgba(238, 119, 8, 0.652), rgba(236, 78, 92, 0.65), rgba(200, 125, 223, 0.65), rgba(108, 95, 22, 0.658));
@@ -31,7 +30,6 @@
 
 .AppTitle {
   display: flex;
-  width: 100vw;
   height: 10vh;
   margin: 0;
   padding: 25px 0 15px;
@@ -60,7 +58,6 @@
 
 .form-control {
   display: flex;
-  width: 100vw;
   height: 10vh;
 
   border: none;
@@ -84,6 +81,8 @@
   color: white;
   
   font-size: 1.25em;
+  text-shadow: 0.5px 0.5px black;
+
 }
 .searchbar-control::first-letter {
   text-transform: uppercase;
@@ -109,6 +108,13 @@
 
   font-size: 1.25em;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 550px) {
+  .todo-btn {
+    height: 25px;
+    padding: 0 0 1.5px;
+  }
 }
 
 .todo-btn:hover {
@@ -138,25 +144,49 @@
 
 .todo-container {
   display: flex;
+  flex-flow: column nowrap;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   height: max-content;
-  width: 100vw;
   margin: 35px 0 0;
 }
 
 .todo-list {
   display: flex;
   flex-wrap: wrap-reverse;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 5vh;
 
   height: max-content;
   max-width: 90vw;
   padding: 15px 0;
   margin: 0 30px;
+}
+
+.star-list {
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap-reverse;
+  justify-content: flex-start;
+  gap: 5vh;
+  height: max-content;
+  max-width: 90vw;
+  margin: 0 25px;
+}
+
+@media only screen and (max-width: 550px) {
+  .todo-list, .star-list {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.starTitle {
+  color: white;
+  font-size: 1.5em;
+    text-shadow: 2px 2px black;
 }
 
 .todo {
@@ -242,6 +272,16 @@
 
 .copy {
   background: no-repeat center url(../resources/copy.svg);
+}
+
+.star {
+  background: no-repeat center url(../resources/star.svg);
+  align-self: flex-start;
+}
+
+.sDone {
+  background: no-repeat center url(../resources/starFill.svg);
+  align-self: flex-start;
 }
 
 .scroller {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Form  = ( {setInputText, inputText, todos, setTodos, setStatus} ) => {
+const Form  = ( {setInputText, inputText, todos, setTodos, setStatus, star, setStar} ) => {
     const inputTextHandler = (e) => {
         console.log(e.target.value);
         setInputText(e.target.value)
@@ -10,7 +10,7 @@ const Form  = ( {setInputText, inputText, todos, setTodos, setStatus} ) => {
         e.preventDefault();
         setTodos([
             ...todos,
-            { text: inputText, completed: false, id: Math.random() * 1000, isTrashed: false, isArchived: false},
+            { text: inputText, completed: false, id: Math.random() * 1000, isTrashed: false, isArchived: false, isStarred: false},
         ]);
         setInputText("")
     };
@@ -21,7 +21,7 @@ const Form  = ( {setInputText, inputText, todos, setTodos, setStatus} ) => {
 
     return (
     <form className="form-control">
-        <input value={inputText} onChange={inputTextHandler} minLength={"1"} type="text" className="searchbar-control" placeholder="Add your note..." />
+        <input value={inputText} onChange={inputTextHandler} minLength={"1"} type="text" className="searchbar-control" placeholder="Add your note..." required />
         <button onClick={submitTodoHandler} className="todo-btn" type="submit">
             &#43;
         </button>

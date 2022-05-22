@@ -4,6 +4,7 @@ import Form from "./components/Form"
 import TodoList from "./components/TodoList"
 import Alert from "./components/Alert"
 import Scroll from "./components/Scroll"
+import Stars from "./components/Stars"
 
 
 function App() {
@@ -12,8 +13,10 @@ function App() {
   const [status, setStatus] = useState("all");
   const [filterTodos, setFilterTodos] = useState([]);
   const [show, setShow] = useState(false);
+  const [star, setStar] = useState(false);
 
-  console.log(show)
+  const noFavs = todos.filter(todo => todo.isStarred === false);
+  const noArch = noFavs.filter(todo => todo.isArchived === false);
 
   const filterHandler = () => {
     switch(status) {
@@ -27,7 +30,7 @@ function App() {
       setFilterTodos(todos.filter(todo => todo.isArchived === true));
       break;
     default:
-      setFilterTodos(todos.filter(todo => todo.isArchived === false));
+      setFilterTodos(noArch);
       break;
     }
   };
@@ -66,7 +69,8 @@ function App() {
       </header>
 
       <Form setInputText={setInputText} inputText={inputText} todos={todos} setTodos={setTodos} setStatus={setStatus}/>
-      <TodoList filterTodos={filterTodos} todos={todos} setTodos={setTodos} setInputText={setInputText} inputText={inputText} show={show} setShow={setShow}/>
+      <Stars star={star} setStar={setStar} todos={todos} setTodos={setTodos} setShow={setShow} />
+      <TodoList filterTodos={filterTodos} todos={todos} setTodos={setTodos} setInputText={setInputText} inputText={inputText} show={show} setShow={setShow} setStar={setStar} star={star} />
       <Scroll />
     </div>
   );
